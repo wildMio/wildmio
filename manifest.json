@@ -1,0 +1,15 @@
+{
+	"short_name": "Mio",
+	"name": "wildMio",
+	"icons": [
+		{
+			"src": "img/Icon-192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		}
+	],
+	"start_url": "index.html?launcher=true",
+	"background_color": "#023852",
+	"theme_color": "#276CBA",
+	"display": "standalone"
+}
