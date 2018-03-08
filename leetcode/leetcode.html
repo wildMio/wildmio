@@ -81,6 +81,14 @@
 				</div>
 			</div>
 		</div>
+		
+		<span class="arrow-box">
+			<div>
+				<span class="arrow-line al1"></span>
+				<span class="arrow-line al2"></span>
+				<span class="arrow-line al3"></span>
+			</div>
+		</span>
 
 		<div class="sidebar">
 			<div class="sidebar-content">
@@ -88,16 +96,8 @@
 				<div class="leet-items-box">
 					<div class="leet-items">
 						<div class="leet-item">
-							<span class="leet-num">123</span>
-							<div class="leet-title">title</div>
-						</div>
-						<div class="leet-item">
-							<span class="leet-num">456</span>
-							<div class="leet-title">title2</div>
-						</div>
-						<div class="leet-item">
-							<span class="leet-num">789</span>
-							<div class="leet-title">title3 qweqweqweqwewqeqwewqewqeewqe</div>
+							<span class="leet-num">1</span>
+							<div class="leet-title">Two Sum</div>
 						</div>
 					</div>
 				</div>
@@ -119,17 +119,49 @@
 					<a href="#snippet-runtime" class="tag-btn">測試時間</a>
 				</div>
 				<div class="snippet">
-					<h2 class="snippet-header">title</h2>
+					<h2 class="snippet-header">Two Sum</h2>
 					<h4 class="snippet-label" id="snippet-description">題目描述</h4>
-					<p class="snippet-content">測試時間</p>
+					<p class="snippet-content">給定一組整數陣列與一個目標值, 找出陣列其中兩元素相加之值等於目標值的陣列位址, 注意同個元素不能使用兩次.</p>
+					<span>範例:</span>
+					<pre class="highlight"><code class="code">
+給定 nums = [2, 7, 11, 15], taget = 9,
+
+因為 num[0] + num[1] = 2 + 7 = 9,
+return [0, 1].
+					</code></pre>
 					<h4 class="snippet-label" id="snippet-code">程式碼</h4>
-					<p class="snippet-content">test</p>
+					<p class="snippet-content">
+						<pre class="highlight"><code class="code">
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    let obj = {};
+    let complement;
+    let len = nums.length;
+    for(let i = 0; i &lt; len ; i++) {
+        complement = target - nums[i];
+        if(obj.hasOwnProperty(complement)) {
+            return [obj[complement], i];
+        }
+        obj[nums[i]] = i;
+    }
+};
+						</code></pre>
+					</p>
 					<h4 class="snippet-label" id="snippet-algorithm">解法邏輯</h4>
-					<p class="snippet-content">test</p>
+					<p class="snippet-content">當我們要確認某一數值是否存在於指定陣列中時, 我們需要一個更有效率的方法來減少搜尋的時間, 最好的方法是甚麼呢? hash table. <br> 我們使用空間換取執行速度, 將查詢時間從O(n)降到O(1), hash table提供我們更快的查詢時間, "近乎"是常數時間, 當有collision發生時, 查詢時間是有可能退化到O(n)的, 但小心選用hash function來建立的hash table其提供的查詢時間基本上是在O(1).</p>
 					<h4 class="snippet-label" id="snippet-complexity">複雜度</h4>
-					<p class="snippet-content">test</p>
+					<p class="snippet-content">
+						<ul class="ul-complexity">
+							<li>時間複雜度: <span class="mathit">O(n)</span>. 在一有n個元素的清單中, 我們只遍歷每個元素一次. 每次在table上的查詢只花費 <span class="mathit">O(1)</span> 時間.</li>
+							<li>空間複雜度: <span class="mathit">O(n)</span>. 需要的額外空間為儲存袃hash table清單的項目數量, 最多儲存n個元素.</li>
+						</ul>
+					</p>
 					<h4 class="snippet-label" id="snippet-runtime">測試時間</h4>
-					<p class="snippet-content">test</p>
+					<p class="snippet-content">96ms</p>
 				</div>
 			</div>
 		</div>

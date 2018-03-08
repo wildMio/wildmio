@@ -15,7 +15,7 @@ const requestAnimFrame = (function(){
           };
 })();
 
-function $(item) {
+const $ = function(item) {
   if(document.querySelectorAll(item).length > 1) {
     return document.querySelectorAll(item);
   }
@@ -140,6 +140,10 @@ function anima(obj) {
     if(obj.scaleX) {
       let scaleX = obj.scaleX[0] + (obj.scaleX[1] - obj.scaleX[0]) * base;
       target.style.transform = `scaleX(${scaleX})`;
+    }
+    if(obj.translateX) {
+      let translateX = obj.translateX[0] + (obj.translateX[1] - obj.translateX[0]) * base;
+      target.style.transform = `translateX(${translateX}px)`;
     }
     if(obj.translateY) {
       let translateY = obj.translateY[0] + (obj.translateY[1] - obj.translateY[0]) * base;
