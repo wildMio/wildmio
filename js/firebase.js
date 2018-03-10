@@ -7,4 +7,7 @@ const config = {
     storageBucket: "webmio-ffc0b.appspot.com",
     messagingSenderId: "635137472435"
   };
-firebase.initializeApp(config);
+const firebaseApp = firebase.initializeApp(config);
+const db = firebaseApp.firestore();
+const leetcodesRef = db.collection("leetcodes");
+const leetcodesbarRef = db.collection("leetcodesbar");
