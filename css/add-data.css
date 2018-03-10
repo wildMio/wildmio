@@ -1,0 +1,87 @@
+body {
+	margin: 0;
+	text-align: center;
+}
+h3 {
+	color: #74d9a1;
+	font-weight: 900;
+}
+hr {
+	color: #74d9a1;
+	background: #74d9a1;
+}
+button {
+	color: white;
+	background: lightseagreen;
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 15px;
+}
+#btn-signOut {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: #74d9a1;
+}
+.leetcode-input-entry {
+	display: flex;
+	text-align: left;
+	margin: 10px 0;
+}
+.leetcode-input-entry label {
+	flex: 1 20%;
+	padding-left: 5px;
+}
+.leetcode-input-entry input, .leetcode-input-entry textarea {
+	flex: 1 80%;
+	padding: 5px;
+	font-size: 20px;
+	margin-right: 5px;
+
+}
+textarea {
+	resize: vertical;
+	min-height: 150px;
+}
+.signIU input {
+	display: block;
+	padding: 10px;
+	margin: 0 auto 10px;
+}
+#loading {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #7CC29B;
+	opacity: 0.6;
+	text-align: center;
+}
+#loading span::after {
+	position: fixed;
+	top: 45%;
+	left: 50%;
+	content: '';
+	border-left: 40px solid white;
+	border-top: 40px solid rgba(0, 0, 0, 0);
+	border-bottom: 40px solid rgba(0, 0, 0, 0);
+	border-right: 40px solid rgb(255, 20, 147);
+	border-radius: 50%;
+	animation: loading 1s linear infinite forwards;
+}
+@keyframes loading {
+	0% {
+		transform: rotate(0deg) scale(1);
+	}
+	33% {
+		transform: rotate(120deg) scale(0.8);
+	}
+	66% {
+		transform: rotate(240deg) scale(1.2);
+	}
+	100% {
+		transform: rotate(360deg) scale(1);
+	}
+}
