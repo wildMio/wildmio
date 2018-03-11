@@ -66,33 +66,16 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 }, false);
 
-// app.loadAndFadeInCaseImages = function() {
-//   // Load background images
-//   $("[data-image]").each(function(i, elem) {
-//     let $elem = $(elem), url = "/images/main-screen/" + $elem.attr
-//   });
-// }
-
 app.loadAndFadeInCaseImages = function() {
   // Load background images
-  // $("[data-image]").each(function(i, elem) {
-  //   var $elem = $(elem),
-  //   url = "/images/portfolio/" + $elem.attributes.["data-image"].value;;
-  //   if (url == null || url.length <= 0 ) { return; }
+  let $elem = $("[data-image]");
+  let url = `./img/${$elem.dataset.image}`;
+  console.log(url);
+  if(url == null || url.length <= 0) { return; }
 
-  //   $elem.classList.add("image-loading");
-  //   $("<img/>").attributes.["src"].value = url;
-  //   $("<img/>").load(function() {
-  //     $(this).remove();
-  //     $bg = $('<div class="case-item-bg"/>');
-  //     $bg.css( 'background-image', 'url(' + url + ')');
-
-  //     $elem.prepend($bg);
-  //     $elem
-  //       .removeClass('image-loading')
-  //       .addClass('image-ready');
-  //   });
-  // });
+  let pic = `<div class="case-item-bg" style="background-image: url(${url});"></div>`;
+  $elem.innerHTML += pic;
+  $elem.classList.add("image-ready");
 }
 
 app.handleESCKey = function() {
