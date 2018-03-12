@@ -79,6 +79,7 @@
 	color: lightslategray;
 }
 .leet-num {
+	flex-shrink: 0;
 	width: 30px;
 	height: 30px;
 	border: 1px solid skyblue;

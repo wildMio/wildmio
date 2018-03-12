@@ -69,8 +69,8 @@ document.addEventListener("DOMContentLoaded", function() {
 app.loadAndFadeInCaseImages = function() {
   // Load background images
   let $elem = $("[data-image]");
+  if(!$elem) {return;}
   let url = `./img/${$elem.dataset.image}`;
-  console.log(url);
   if(url == null || url.length <= 0) { return; }
 
   let pic = `<div class="case-item-bg" style="background-image: url(${url});"></div>`;
