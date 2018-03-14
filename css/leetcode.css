@@ -233,6 +233,9 @@
 	margin-bottom: 2em;
 	line-height: 1.5em;
 }
+.content-algorithm {
+	white-space: pre-wrap;
+}
 .ul-complexity {
 	margin-top: -20px;
 	margin-bottom: 20px;
