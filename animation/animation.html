@@ -83,22 +83,268 @@
 
 		<div class="content">
 			<div class="midconent">
-				<button class="arrow-btn prev"></button>
+				<button class="arrow-btn" id="prev"></button>
 				<div class="example">
 					<div id="anima-core">
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
+						<div class="anima-active" id="grow-box">
+							<div class="boxBlock" style="top: 0; left: 0;">
+								<div class="boxRelative" data-top="0" data-left="0">
+									<span class="box-body"></span>
+									<button class="box-btn box-btn-top">+</button>
+									<button class="box-btn box-btn-right">+</button>
+									<button class="box-btn box-btn-bottom">+</button>
+									<button class="box-btn box-btn-left">+</button>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="tempbox">施工中</div>
+						</div>
+						<div>
+							<div class="tempbox">施工中</div>
+						</div>
+						<div>
+							<div class="tempbox">施工中</div>
+						</div>
+						<div>
+							<div class="tempbox">施工中</div>
+						</div>
 					</div>
 				</div>
-				<button class="arrow-btn next"></button>
+				<button class="arrow-btn" id="next"></button>
 			</div>
 		</div>
 
-		<div class="site-name-link source">&lt;/&gt;Source</div>
-		<div class="choose-point">
+		<div class="site-name-link source">&lt;/&gt;&nbsp;Source</div>
+
+		<div id="source-frame">
+			<div class="type-label">
+				<span class="html-label" data-label="HTML"></span>
+				<span class="css-label" data-label="CSS"></span>
+				<span class="js-label" data-label="JS"></span>
+			</div>
+			<ul class="source-list">
+				<!-- Grow Box -->
+				<li>
+					<textarea readonly class="html-code">
+<div class="boxBlock" style="top: 0; left: 0;">
+	<div class="boxRelative" data-top="0" data-left="0">
+		<span class="box-body"></span>
+		<button class="box-btn box-btn-top">+</button>
+		<button class="box-btn box-btn-right">+</button>
+		<button class="box-btn box-btn-bottom">+</button>
+		<button class="box-btn box-btn-left">+</button>
+	</div>
+</div>
+					</textarea>
+					<textarea readonly class="css-code">
+.boxBlock {
+	position: absolute;
+}
+.boxRelative {
+	position: relative;
+}
+.box-body {
+	display: block;
+	width: 40px;
+	height: 40px;
+	background: white;
+	z-index: 5;
+}
+.from-top {
+	animation: from-top 0.3s ease-out forwards;
+}
+.from-right {
+	animation: from-right 0.3s ease-out forwards;
+}
+.from-bottom {
+	animation: from-bottom 0.3s ease-out forwards;
+}
+.from-left {
+	animation: from-left 0.3s ease-out forwards;
+}
+@keyframes from-top {
+	0% {
+		transform: translateY(-100px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+@keyframes from-right {
+	0% {
+		transform: translateX(100px);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+@keyframes from-bottom {
+	0% {
+		transform: translateY(100px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+@keyframes from-left {
+	0% {
+		transform: translateX(-100px);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+.box-btn {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	opacity: 0;
+	outline: none;
+	border: 1px dashed white;
+	font-size: 40px;
+	font-weight: 100;
+	color: springgreen;
+	background: rgba(0, 0, 0, 0);
+	padding: 0;
+	line-height: 18px;
+	z-index: -10;
+	transition: all 0.2s ease-out;
+}
+.box-btn-top {
+	top: -40px;
+	left: 0;
+}
+.box-btn-right {
+	top: 0;
+	left: 40px;
+}
+.box-btn-bottom {
+	top: 40px;
+	left: 0;
+}
+.box-btn-left {
+	top: 0;
+	left: -40px;
+}
+.boxRelative:hover .box-btn {
+	opacity: 1;
+}
+.box-btn:hover {
+	font-weight: 900
+}
+					</textarea>
+					<textarea readonly class="js-code">
+var animakit = {};
+animakit.growBoxIndex = 0;
+
+const $ = function(item) {
+  if(document.querySelectorAll(item).length > 1) {
+    return document.querySelectorAll(item);
+  }
+  return document.querySelector(item);
+}
+
+const findIndex = function(items, target) {
+	let index;
+	$(items).forEach((item, i) => {
+		if(item.classList.contains(target)) {
+			index = i;
+		}
+	});
+	return index;
+};
+
+// animation 1 addEventListener START
+$('.box-btn').forEach((elem) => {
+	elem.addEventListener('click', function() {
+		animakit.growBox(elem);
+	});
+});
+// animation 1 addEventListener END
+
+// animation 1 function START
+animakit.growBox = function(elem) {
+	let left = parseInt(elem.parentElement.dataset.left);
+	let top = parseInt(elem.parentElement.dataset.top);
+	let fromName;
+
+	if(elem.classList.contains("box-btn-top")) {
+		top -= 40;
+		fromName = 'from-top';
+	}
+	else if(elem.classList.contains("box-btn-right")) {
+		left += 40;
+		fromName = 'from-right';
+	}
+	else if(elem.classList.contains("box-btn-bottom")) {
+		top += 40;
+		fromName = 'from-bottom';
+	}
+	else if(elem.classList.contains("box-btn-left")) {
+		left -= 40;
+		fromName = 'from-left';
+	}
+
+	let newElement = `<div class="boxBlock" id="new-box-${animakit.growBoxIndex}" style="top: ${top}px; left: ${left}px;">
+			<div class="boxRelative" data-top="${top}" data-left="${left}">
+				<span class="box-body ${fromName}"></span>
+				<button class="box-btn box-btn-top">+</button>
+				<button class="box-btn box-btn-right">+</button>
+				<button class="box-btn box-btn-bottom">+</button>
+				<button class="box-btn box-btn-left">+</button>
+			</div>
+		</div>`;
+	let tempElem = document.createElement('div');
+	tempElem.innerHTML = newElement;
+	$('#grow-box').prepend(tempElem.firstChild);
+	$(`#new-box-${animakit.growBoxIndex} .box-body`).addEventListener('animationend', function() {
+		$(`#new-box-${animakit.growBoxIndex++} .box-btn`).forEach((elem) => {
+			elem.addEventListener('click', function() {
+				animakit.growBox(elem);
+			});
+		});
+	});
+}
+// animation 1 function END
+					</textarea>
+				</li>
+				<li>
+					<textarea readonly class="html-code">
+					</textarea>
+					<textarea readonly class="css-code">
+					</textarea>
+					<textarea readonly class="js-code">
+					</textarea>
+				</li>
+				<li>
+					<textarea readonly class="html-code">
+					</textarea>
+					<textarea readonly class="css-code">
+					</textarea>
+					<textarea readonly class="js-code">
+					</textarea>
+				</li>
+				<li>
+					<textarea readonly class="html-code">
+					</textarea>
+					<textarea readonly class="css-code">
+					</textarea>
+					<textarea readonly class="js-code">
+					</textarea>
+				</li>
+				<li>
+					<textarea readonly class="html-code">
+					</textarea>
+					<textarea readonly class="css-code">
+					</textarea>
+					<textarea readonly class="js-code">
+					</textarea>
+				</li>
+			</ul>
+		</div>
+
+		<div class="pagination">
 			<div class="circle circle-active"></div>
 			<div class="circle"></div>
 			<div class="circle"></div>
