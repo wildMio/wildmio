@@ -64,6 +64,12 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     }, 300);
   }
+
+  // 加入施工小小人至對應區塊
+  $('.little-construction').forEach((elem) => {
+    app.addConstructionMan(elem);
+  });
+
 }, false);
 
 app.loadAndFadeInCaseImages = function() {
@@ -253,4 +259,22 @@ app.hideMenuIcon = function() {
 
 app.showMenuIcon = function() {
   $(".menu").style.display = "block";
+}
+
+// 創建施工小小人並加入區塊中
+app.addConstructionMan = function(elem) {
+  const txt = `<div class="construction" data-hint="施工中">
+                <span class="construction-head"></span>
+                <span class="construction-hat"></span>
+                <span class="construction-body"></span>
+                <span class="construction-hand-box">
+                  <span class="construction-hand"></span>
+                </span>
+                <span class="construction-hand-box">
+                  <span class="construction-hand c-h-2"></span>
+                </span>
+              </div>`;
+  let tempElement = document.createElement('div');
+  tempElement.innerHTML = txt;
+  elem.appendChild(tempElement.firstChild);
 }

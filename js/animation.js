@@ -76,7 +76,8 @@ document.addEventListener("DOMContentLoaded", function() {
 		});
 	});
 	// animation 1 addEventListener END
-});
+
+}, false);
 
 animakit.goToNext = function() {
 	// Exit if there are no more animation

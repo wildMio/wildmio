@@ -249,10 +249,11 @@ body {
 	z-index: 130;
 	top: 0;
 	bottom: 0;
-	right: 30px;
+	right: 3%;
 	width: 100px;
+	height: 80%;
 	opacity: 0;
-	margin: 10% 0;
+	margin: auto;
 	visibility: hidden;
 	transform: scale(0.2);
 	-webkit-transform: scale(0.2);
