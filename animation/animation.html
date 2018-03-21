@@ -88,7 +88,7 @@
 					<div id="anima-core">
 						<div class="anima-active" id="grow-box">
 							<div class="boxBlock" style="top: 0; left: 0;">
-								<div class="boxRelative" data-top="0" data-left="0">
+								<div class="boxRelative box-first" data-top="0" data-left="0">
 									<span class="box-body"></span>
 									<button class="box-btn box-btn-top">+</button>
 									<button class="box-btn box-btn-right">+</button>
@@ -138,110 +138,110 @@
 				<li>
 <textarea readonly class="html-code">
 <div class="boxBlock" style="top: 0; left: 0;">
-	<div class="boxRelative" data-top="0" data-left="0">
-		<span class="box-body"></span>
-		<button class="box-btn box-btn-top">+</button>
-		<button class="box-btn box-btn-right">+</button>
-		<button class="box-btn box-btn-bottom">+</button>
-		<button class="box-btn box-btn-left">+</button>
-	</div>
+  <div class="boxRelative" data-top="0" data-left="0">
+    <span class="box-body"></span>
+    <button class="box-btn box-btn-top">+</button>
+    <button class="box-btn box-btn-right">+</button>
+    <button class="box-btn box-btn-bottom">+</button>
+    <button class="box-btn box-btn-left">+</button>
+  </div>
 </div>
 </textarea>
 <textarea readonly class="css-code">
 .boxBlock {
-	position: absolute;
+  position: absolute;
 }
 .boxRelative {
-	position: relative;
+  position: relative;
 }
 .box-body {
-	display: block;
-	width: 40px;
-	height: 40px;
-	background: white;
-	z-index: 5;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: white;
+  z-index: 5;
 }
 .from-top {
-	animation: from-top 0.3s ease-out forwards;
+  animation: from-top 0.3s ease-out forwards;
 }
 .from-right {
-	animation: from-right 0.3s ease-out forwards;
+  animation: from-right 0.3s ease-out forwards;
 }
 .from-bottom {
-	animation: from-bottom 0.3s ease-out forwards;
+  animation: from-bottom 0.3s ease-out forwards;
 }
 .from-left {
-	animation: from-left 0.3s ease-out forwards;
+  animation: from-left 0.3s ease-out forwards;
 }
 @keyframes from-top {
-	0% {
-		transform: translateY(-100px);
-	}
-	100% {
-		transform: translateY(0);
-	}
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 @keyframes from-right {
-	0% {
-		transform: translateX(100px);
-	}
-	100% {
-		transform: translateX(0);
-	}
+  0% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 @keyframes from-bottom {
-	0% {
-		transform: translateY(100px);
-	}
-	100% {
-		transform: translateY(0);
-	}
+  0% {
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 @keyframes from-left {
-	0% {
-		transform: translateX(-100px);
-	}
-	100% {
-		transform: translateX(0);
-	}
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 .box-btn {
-	position: absolute;
-	width: 40px;
-	height: 40px;
-	opacity: 0;
-	outline: none;
-	border: 1px dashed white;
-	font-size: 40px;
-	font-weight: 100;
-	color: springgreen;
-	background: rgba(0, 0, 0, 0);
-	padding: 0;
-	line-height: 18px;
-	z-index: -10;
-	transition: all 0.2s ease-out;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  opacity: 0;
+  outline: none;
+  border: 1px dashed white;
+  font-size: 40px;
+  font-weight: 100;
+  color: springgreen;
+  background: rgba(0, 0, 0, 0);
+  padding: 0;
+  line-height: 18px;
+  z-index: -10;
+  transition: all 0.2s ease-out;
 }
 .box-btn-top {
-	top: -40px;
-	left: 0;
+  top: -40px;
+  left: 0;
 }
 .box-btn-right {
-	top: 0;
-	left: 40px;
+  top: 0;
+  left: 40px;
 }
 .box-btn-bottom {
-	top: 40px;
-	left: 0;
+  top: 40px;
+  left: 0;
 }
 .box-btn-left {
-	top: 0;
-	left: -40px;
+  top: 0;
+  left: -40px;
 }
 .boxRelative:hover .box-btn {
-	opacity: 1;
+  opacity: 1;
 }
 .box-btn:hover {
-	font-weight: 900
+  font-weight: 900
 }
 </textarea>
 <textarea readonly class="js-code">
@@ -255,66 +255,56 @@ const $ = function(item) {
   return document.querySelector(item);
 }
 
-const findIndex = function(items, target) {
-	let index;
-	$(items).forEach((item, i) => {
-		if(item.classList.contains(target)) {
-			index = i;
-		}
-	});
-	return index;
-};
-
 // animation 1 addEventListener START
 $('.box-btn').forEach((elem) => {
-	elem.addEventListener('click', function() {
-		animakit.growBox(elem);
-	});
+  elem.addEventListener('click', function() {
+    animakit.growBox(elem);
+  });
 });
 // animation 1 addEventListener END
 
 // animation 1 function START
 animakit.growBox = function(elem) {
-	let left = parseInt(elem.parentElement.dataset.left);
-	let top = parseInt(elem.parentElement.dataset.top);
-	let fromName;
+  let left = parseInt(elem.parentElement.dataset.left);
+  let top = parseInt(elem.parentElement.dataset.top);
+  let fromName;
 
-	if(elem.classList.contains("box-btn-top")) {
-		top -= 40;
-		fromName = 'from-top';
-	}
-	else if(elem.classList.contains("box-btn-right")) {
-		left += 40;
-		fromName = 'from-right';
-	}
-	else if(elem.classList.contains("box-btn-bottom")) {
-		top += 40;
-		fromName = 'from-bottom';
-	}
-	else if(elem.classList.contains("box-btn-left")) {
-		left -= 40;
-		fromName = 'from-left';
-	}
+  if(elem.classList.contains("box-btn-top")) {
+    top -= 40;
+    fromName = 'from-top';
+  }
+  else if(elem.classList.contains("box-btn-right")) {
+    left += 40;
+    fromName = 'from-right';
+  }
+  else if(elem.classList.contains("box-btn-bottom")) {
+    top += 40;
+    fromName = 'from-bottom';
+  }
+  else if(elem.classList.contains("box-btn-left")) {
+    left -= 40;
+    fromName = 'from-left';
+  }
 
-	let newElement = `<div class="boxBlock" id="new-box-${animakit.growBoxIndex}" style="top: ${top}px; left: ${left}px;">
-			<div class="boxRelative" data-top="${top}" data-left="${left}">
-				<span class="box-body ${fromName}"></span>
-				<button class="box-btn box-btn-top">+</button>
-				<button class="box-btn box-btn-right">+</button>
-				<button class="box-btn box-btn-bottom">+</button>
-				<button class="box-btn box-btn-left">+</button>
-			</div>
-		</div>`;
-	let tempElem = document.createElement('div');
-	tempElem.innerHTML = newElement;
-	$('#grow-box').prepend(tempElem.firstChild);
-	$(`#new-box-${animakit.growBoxIndex} .box-body`).addEventListener('animationend', function() {
-		$(`#new-box-${animakit.growBoxIndex++} .box-btn`).forEach((elem) => {
-			elem.addEventListener('click', function() {
-				animakit.growBox(elem);
-			});
-		});
-	});
+  let newElement = `<div class="boxBlock" id="new-box-${animakit.growBoxIndex}" style="top: ${top}px; left: ${left}px;">
+      <div class="boxRelative" data-top="${top}" data-left="${left}">
+        <span class="box-body ${fromName}"></span>
+        <button class="box-btn box-btn-top">+</button>
+        <button class="box-btn box-btn-right">+</button>
+        <button class="box-btn box-btn-bottom">+</button>
+        <button class="box-btn box-btn-left">+</button>
+      </div>
+    </div>`;
+  let tempElem = document.createElement('div');
+  tempElem.innerHTML = newElement;
+  $('#grow-box').prepend(tempElem.firstChild);
+  $(`#new-box-${animakit.growBoxIndex} .box-body`).addEventListener('animationend', function() {
+    $(`#new-box-${animakit.growBoxIndex++} .box-btn`).forEach((elem) => {
+      elem.addEventListener('click', function() {
+        animakit.growBox(elem);
+      });
+    });
+  });
 }
 // animation 1 function END
 </textarea>
@@ -323,120 +313,120 @@ animakit.growBox = function(elem) {
 				<li>
 <textarea readonly class="html-code">
 <div class="construction" data-hint="施工中">
-	<span class="construction-head"></span>
-	<span class="construction-hat"></span>
-	<span class="construction-body"></span>
-	<span class="construction-hand-box">
-		<span class="construction-hand"></span>
-	</span>
-	<span class="construction-hand-box">
-		<span class="construction-hand c-h-2"></span>
-	</span>
+  <span class="construction-head"></span>
+  <span class="construction-hat"></span>
+  <span class="construction-body"></span>
+  <span class="construction-hand-box">
+    <span class="construction-hand"></span>
+  </span>
+  <span class="construction-hand-box">
+    <span class="construction-hand c-h-2"></span>
+  </span>
 </div>
 </textarea>
 <textarea readonly class="css-code">
 .construction {
-	width: 100%;
-	height: 100%;
-	position: relative;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 .construction::before {
-	position: absolute;
-	content: attr(data-hint);
-	font-size: 16px;
-	padding: 2px 4px;
-	top: -41px;
-	right: 0;
-	background: rgb(55, 55, 55);
-	color: white;
-	border-radius: 5px;
-	opacity: 0;
-	transform-origin: bottom;
-	transform: scale(0.2);
-	transition: all 0.3s ease-out;
+  position: absolute;
+  content: attr(data-hint);
+  font-size: 16px;
+  padding: 2px 4px;
+  top: -41px;
+  right: 0;
+  background: rgb(55, 55, 55);
+  color: white;
+  border-radius: 5px;
+  opacity: 0;
+  transform-origin: bottom;
+  transform: scale(0.2);
+  transition: all 0.3s ease-out;
 }
 .construction::after {
-	position: absolute;
-	content: '';
-	border-top: 5px solid rgb(55, 55, 55);
-	border-right: 5px solid rgba(0, 0, 0, 0);
-	border-left: 5px solid rgba(0, 0, 0, 0);
-	top: -7px;
-	right: 25px;
-	opacity: 0;
-	transform-origin: top;
-	transform: scale(0.2);
-	transition: all 0.3s ease-out;
+  position: absolute;
+  content: '';
+  border-top: 5px solid rgb(55, 55, 55);
+  border-right: 5px solid rgba(0, 0, 0, 0);
+  border-left: 5px solid rgba(0, 0, 0, 0);
+  top: -7px;
+  right: 25px;
+  opacity: 0;
+  transform-origin: top;
+  transform: scale(0.2);
+  transition: all 0.3s ease-out;
 }
 .construction:hover::before, .construction:hover::after {
-	opacity: 1;
-	transform: scale(1);
+  opacity: 1;
+  transform: scale(1);
 }
 .construction-head {
-	position: absolute;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	top: 10px;
-	right: 10px;
-	background: white;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  top: 10px;
+  right: 10px;
+  background: white;
 }
 .construction-hat {
-	position: absolute;
-	border: 25px solid #ffcc00;
-	border-bottom-color: rgba(0, 0, 0, 0);
-	border-left-color: rgba(0, 0, 0, 0);
-	border-radius: 50%;
-	top: 5px;
-	right: 5px;
-	transform: rotate(-15deg);
+  position: absolute;
+  border: 25px solid #ffcc00;
+  border-bottom-color: rgba(0, 0, 0, 0);
+  border-left-color: rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  top: 5px;
+  right: 5px;
+  transform: rotate(-15deg);
 }
 .construction-body {
-	position: absolute;
-	width: 30px;
-	height: 40px;
-	background: white;
-	top: 55px;
-	right: 15px;
-	border-radius: 5px 5px 30% 40%;
+  position: absolute;
+  width: 30px;
+  height: 40px;
+  background: white;
+  top: 55px;
+  right: 15px;
+  border-radius: 5px 5px 30% 40%;
 }
 .construction-hand-box {
-	position: absolute;
-	top: 20px;
-	left: 10px;
-	width: 60px;
-	height: 60px;
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  width: 60px;
+  height: 60px;
 }
 .construction-hand {
-	position: relative;
-	display: block;
-	width: 60px;
-	height: 60px;
-	animation: construction-anima 0.5s ease-in-out infinite alternate 0s;
+  position: relative;
+  display: block;
+  width: 60px;
+  height: 60px;
+  animation: construction-anima 0.5s ease-in-out infinite alternate 0s;
 }
 .c-h-2 {
-	animation: construction-anima 0.5s ease-in-out infinite alternate 0.5s;
+  animation: construction-anima 0.5s ease-in-out infinite alternate 0.5s;
 }
 .construction-hand::before {
-	position: absolute;
-	content: '';
-	top: 0;
-	left: 0;
-	width: 25px;
-	height: 25px;
-	border-radius: 50%;
-	background: white;
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: white;
 }
 @keyframes construction-anima {
-	0% {
-		transform: rotate(15deg);
-	}
-	50% {
-		opacity: 0.6;
-	}
-	100% {
-		transform: rotate(-105deg);
-	}
+  0% {
+    transform: rotate(15deg);
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: rotate(-105deg);
+  }
 }
 </textarea>
 <textarea readonly class="js-code">

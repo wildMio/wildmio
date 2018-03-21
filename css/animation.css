@@ -383,6 +383,9 @@ body {
 .box-btn:hover {
 	font-weight: 900;
 }
+.box-first .box-btn{
+	opacity: 0.6;
+}
 /* animation 1 END */
 
 .tempbox {

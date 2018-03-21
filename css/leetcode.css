@@ -233,7 +233,7 @@
 	margin-bottom: 2em;
 	line-height: 1.5em;
 }
-.content-algorithm {
+#content-algorithm {
 	white-space: pre-wrap;
 }
 .ul-complexity {

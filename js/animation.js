@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	// animation 1 addEventListener START
 	$('.box-btn').forEach((elem) => {
 		elem.addEventListener('click', function() {
+			elem.parentElement.classList.remove('box-first');
 			animakit.growBox(elem);
 		});
 	});
