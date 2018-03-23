@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		elem.addEventListener('click', function() {
 			elem.parentElement.classList.remove('box-first');
 			animakit.growBox(elem);
-		});
+		}, {once: true});
 	});
 	// animation 1 addEventListener END
 
@@ -179,7 +179,7 @@ animakit.growBox = function(elem) {
 		$(`#new-box-${animakit.growBoxIndex++} .box-btn`).forEach((elem) => {
 			elem.addEventListener('click', function() {
 				animakit.growBox(elem);
-			});
+			}, {once: true});
 		});
 	});
 }

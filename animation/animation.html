@@ -111,7 +111,14 @@
 							</div>
 						</div>
 						<div>
-							<div class="tempbox">施工中</div>
+							<div class="anima-triangle">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+              </div>
+              <div class="tri-circle"></div>
+              <div class="tri-circle"></div>
+              <div class="tri-circle"></div>
 						</div>
 						<div>
 							<div class="tempbox">施工中</div>
@@ -433,10 +440,224 @@ animakit.growBox = function(elem) {
 無
 </textarea>
 				</li>
+        <!-- 旋轉的球球 -->
 				<li>
 <textarea readonly class="html-code">
+<div class="anima-triangle">
+  <div class="line"></div>
+  <div class="line"></div>
+  <div class="line"></div>
+</div>
+<div class="tri-circle"></div>
+<div class="tri-circle"></div>
+<div class="tri-circle"></div>
 </textarea>
 <textarea readonly class="css-code">
+/* animation 3 START */
+.anima-triangle {
+  position: relative;
+  width: 100px;
+  height: 92px;
+}
+.anima-triangle > .line {
+  position: absolute;
+  width: 100px;
+  height: 3px;
+  background: white;
+}
+.anima-triangle > .line:nth-child(1) {
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: line-grow 10s ease-in-out infinite;
+}
+.anima-triangle > .line:nth-child(2) {
+  transform-origin: top right;
+  transform: rotate(-60deg) translate(-3px) scale(0);
+  animation: line-grow2 10s ease-in-out 1.2s infinite;
+}
+.anima-triangle > .line:nth-child(3) {
+  transform-origin: top right;
+  transform: rotate(60deg) translate3d(53px, 87px, 0) scale(0);
+  animation: line-grow3 10s ease-in-out 2.4s infinite;
+}
+@keyframes line-grow {
+  0% {
+    transform: scaleX(0);
+  }
+  16.6% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+  66.6% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+@keyframes line-grow2 {
+  0% {
+    transform: rotate(-60deg) translate(-3px) scale(0);
+  }
+  16.6% {
+    transform: rotate(-60deg) translate(-3px) scale(1);
+  }
+  50% {
+    transform: rotate(-60deg) translate(-3px) scale(1);
+  }
+  66.6% {
+    transform: rotate(-60deg) translate(-3px) scale(0);
+  }
+  100% {
+    transform: rotate(-60deg) translate(-3px) scale(0);
+  }
+}
+@keyframes line-grow3 {
+  0% {
+    transform: rotate(60deg) translate3d(53px, 87px, 0)  scale(0);
+  }
+  16.6% {
+    transform: rotate(60deg) translate3d(53px, 87px, 0)  scale(1);
+  }
+  50% {
+    transform: rotate(60deg) translate3d(53px, 87px, 0)  scale(1);
+  }
+  66.6% {
+    transform: rotate(60deg) translate3d(53px, 87px, 0)  scale(0);
+  }
+  100% {
+    transform: rotate(60deg) translate3d(53px, 87px, 0)  scale(0);
+  }
+}
+.tri-circle {
+  position: absolute;
+  width: 106px;
+  height: 106px;
+  border-radius: 50%;
+}
+.tri-circle:nth-child(2) {
+  top: -70px;
+  left: -4px;
+  border: 3px solid #00000000;
+  transform: rotate(90deg);
+  animation: rot1 10s ease-in-out infinite forwards;
+}
+.tri-circle:nth-child(3) {
+  top: 4px;
+  right: -46.5px;
+  border: 3px solid #00000000;
+  transform: rotate(30deg);
+  animation: rot2 10s ease-in-out 1.2s infinite forwards;
+}
+.tri-circle:nth-child(4) {
+  top: 4px;
+  left: -46.5px;
+  border: 3px solid #00000000;
+  transform: rotate(150deg);
+  animation: rot3 10s ease-in-out 2.4s infinite forwards;
+}
+@keyframes rot1 {
+  0% {
+    border-color: #00000000;
+    transform: rotate(90deg);
+  }
+  16.6% {
+    border-color: #db7093ff;
+    transform: rotate(270deg);
+  }
+  50% {
+    border-color: #db7093ff;
+    transform: rotate(270deg);
+  }
+  66.6% {
+    border-color: #00000000;
+    transform: rotate(90deg);
+  }
+  100% {
+    border-color: #00000000;
+    transform: rotate(90deg);
+  }
+}
+@keyframes rot2 {
+  0% {
+    border-color: #00000000;
+    transform: rotate(30deg);
+  }
+  16.6% {
+    border-color: #00fa9aff;
+    transform: rotate(210deg);
+  }
+  50% {
+    border-color: #00fa9aff;
+    transform: rotate(210deg);
+  }
+  66.6% {
+    border-color: #00000000;
+    transform: rotate(30deg);
+  }
+  100% {
+    border-color: #00000000;
+    transform: rotate(30deg);
+  }
+} 
+@keyframes rot3 {
+  0% {
+    border-color: #00000000;
+    transform: rotate(150deg);
+  }
+  16.6% {
+    border-color: #4169e1ff;
+    transform: rotate(330deg);
+  }
+  50% {
+    border-color: #4169e1ff;
+    transform: rotate(330deg);
+  }
+  66.6% {
+    border-color: #00000000;
+    transform: rotate(150deg);
+  }
+  100% {
+    border-color: #00000000;
+    transform: rotate(150deg);
+  }
+} 
+.tri-circle::before, .tri-circle::after {
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  left: 43px;
+  z-index: 1;
+}
+.tri-circle::before {
+  bottom: -11.5px;
+}
+.tri-circle::after {
+  top: -11.5px;
+}
+.tri-circle:nth-child(2)::before {
+  background: hsl(12, 100%, 50%);
+}
+.tri-circle:nth-child(2)::after {
+  background: hsl(0, 100%, 70%);
+}
+.tri-circle:nth-child(3)::before {
+  background: hsl(120, 100%, 30%);
+}
+.tri-circle:nth-child(3)::after {
+  background: hsl(120, 100%, 70%);
+}
+.tri-circle:nth-child(4)::before {
+  background: hsl(240, 100%, 60%);
+}
+.tri-circle:nth-child(4)::after {
+  background: hsl(200, 100%, 70%);
+}
+/* animation3 END */
 </textarea>
 <textarea readonly class="js-code">
 </textarea>
