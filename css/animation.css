@@ -595,6 +595,142 @@ body {
 }
 /* animation3 END */
 
+/* animation4 START */
+.camera {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	border: 5px solid white;
+	box-shadow: 0 0 0 5px rgb(155, 155, 155);
+	background: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: transform 0.3s ease-in-out;
+	z-index: -1;
+	transform: scale(1);
+}
+.hexagon {
+	position: relative;
+	width: 30px;
+	height: 52px;
+	background: white;
+	transform: scale(0.45);
+	animation: defomation 2s ease-in-out infinite alternate;
+}
+.rectangle {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: white;
+}
+.hexagon>.rectangle:nth-child(2) {
+	transform: rotate(60deg);
+}
+.hexagon>.rectangle:nth-child(3) {
+	transform: rotate(-60deg);
+}
+.forline {
+	position: absolute;
+	animation: none;
+}
+.forline>.rectangle {
+	background: none;
+}
+.forline>.rectangle::before {
+	position: absolute;
+	content: '';
+	width: 115px;
+	height: 10px;
+	background: white;
+	top: 0;
+	left: -86px;
+	transform-origin: left;
+	animation: rotateLine 2s ease-in-out infinite alternate;
+}
+.forline>.rectangle::after {
+	position: absolute;
+	content: '';
+	width: 115px;
+	height: 10px;
+	background: white;
+	bottom: 0;
+	right: -86px;
+	transform-origin: right;
+	animation: rotateLine 2s ease-in-out infinite alternate;
+}
+@keyframes defomation {
+	0% {
+		transform: scale(0.45) rotate(0);
+	}
+	20% {
+		transform: scale(0.45) rotate(0);
+	}
+	40% {
+		transform: scale(0.8) rotate(-15deg);
+	}
+	60% {
+		transform: scale(0.8) rotate(-15deg);
+	}
+	80% {
+		transform: scale(1.15) rotate(-30deg);
+	}
+	100% {
+		transform: scale(1.15) rotate(-30deg);
+	}
+}
+@keyframes rotateLine {
+	0% {
+		transform: rotate(0);
+	}
+	20% {
+		transform: rotate(0);
+	}
+	40% {
+		transform: rotate(-15deg);
+	}
+	60% {
+		transform: rotate(-15deg);
+	}
+	80% {
+		transform: rotate(-30deg);
+	}
+	100% {
+		transform: rotate(-30deg);
+	}
+}
+/* animation4 END*/
+/* animation4 contorller START*/
+.anima4-btn {
+	margin-top: 20px;
+	z-index: 1;
+}
+.anima4-btn button {
+	font-size: 25px;
+	font-weight: 900;
+	outline: none;
+	border: none;
+	color: white;
+	border-radius: 25%;
+	cursor: pointer;
+	margin: 0 5px;
+}
+.anima4-little {
+	background: #faa;
+}
+.anima4-big {
+	background: #aaf;
+}
+.anima4-little:active {
+	background: #f88;
+}
+.anima4-big:active {
+	background: #88f;
+}
+
+/* animation4 contorller END*/
+
 .tempbox {
 	width: 100%;
 	height: 100%;

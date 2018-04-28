@@ -1,5 +1,6 @@
 var animakit = {};
 animakit.growBoxIndex = 0;
+animakit.cameraSize = 1;
 
 const findIndex = function(items, target) {
 	let index;
@@ -77,6 +78,15 @@ document.addEventListener("DOMContentLoaded", function() {
 		}, {once: true});
 	});
 	// animation 1 addEventListener END
+
+	// animation 4 addEventListener START
+	$('.anima4-little').addEventListener('click', function() {
+		animakit.changeSize(-1);
+	});
+	$('.anima4-big').addEventListener('click', function() {
+		animakit.changeSize(1);
+	});
+	// animation 4 addEventListener END
 
 }, false);
 
@@ -184,3 +194,16 @@ animakit.growBox = function(elem) {
 	});
 }
 // animation 1 function END
+
+// animation 4 function START
+animakit.changeSize = function(size) {
+	if(size > 0 && animakit.cameraSize > 5) {
+		return;
+	}
+	if(size < 0 && animakit.cameraSize <= 1) {
+		return;
+	}
+	animakit.cameraSize += size;
+	$('.camera').style.transform = `scale(${animakit.cameraSize})`;
+}
+// animation 4 function END
