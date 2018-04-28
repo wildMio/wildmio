@@ -404,17 +404,17 @@ body {
 .anima-triangle > .line:nth-child(1) {
 	transform-origin: left;
 	transform: scaleX(0);
-	animation: line-grow 10s ease-in-out infinite;
+	animation: line-grow 8s ease-in-out infinite;
 }
 .anima-triangle > .line:nth-child(2) {
 	transform-origin: top right;
 	transform: rotate(-60deg) translate(-3px) scale(0);
-	animation: line-grow2 10s ease-in-out 1.2s infinite;
+	animation: line-grow2 8s ease-in-out 1s infinite;
 }
 .anima-triangle > .line:nth-child(3) {
 	transform-origin: top right;
 	transform: rotate(60deg) translate3d(53px, 87px, 0) scale(0);
-	animation: line-grow3 10s ease-in-out 2.4s infinite;
+	animation: line-grow3 8s ease-in-out 2s infinite;
 }
 @keyframes line-grow {
 	0% {
@@ -478,21 +478,21 @@ body {
 	left: -4px;
 	border: 3px solid #00000000;
 	transform: rotate(90deg);
-	animation: rot1 10s ease-in-out infinite forwards;
+	animation: rot1 8s ease-in-out infinite forwards;
 }
 .tri-circle:nth-child(3) {
 	top: 4px;
 	right: -46.5px;
 	border: 3px solid #00000000;
 	transform: rotate(30deg);
-	animation: rot2 10s ease-in-out 1.2s infinite forwards;
+	animation: rot2 8s ease-in-out 1s infinite forwards;
 }
 .tri-circle:nth-child(4) {
 	top: 4px;
 	left: -46.5px;
 	border: 3px solid #00000000;
 	transform: rotate(150deg);
-	animation: rot3 10s ease-in-out 2.4s infinite forwards;
+	animation: rot3 8s ease-in-out 2s infinite forwards;
 }
 @keyframes rot1 {
 	0% {
