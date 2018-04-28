@@ -705,9 +705,13 @@ body {
 .anima4-btn {
 	margin-top: 20px;
 	z-index: 1;
+	text-align: center;
 }
 .anima4-btn button {
-	font-size: 25px;
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	font-size: 30px;
 	font-weight: 900;
 	outline: none;
 	border: none;
@@ -715,6 +719,7 @@ body {
 	border-radius: 25%;
 	cursor: pointer;
 	margin: 0 5px;
+	padding: 0;
 }
 .anima4-little {
 	background: #faa;
@@ -722,11 +727,17 @@ body {
 .anima4-big {
 	background: #aaf;
 }
+.anima4-little:hover {
+	background: #f77;
+}
+.anima4-big:hover {
+	background: #77f;
+}
 .anima4-little:active {
-	background: #f88;
+	background: #f33;
 }
 .anima4-big:active {
-	background: #88f;
+	background: #33f;
 }
 
 /* animation4 contorller END*/
